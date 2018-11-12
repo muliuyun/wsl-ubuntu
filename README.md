@@ -11,23 +11,24 @@
 1. 将此脚本保存执行: https://github.com/muliuyun/wsl-ubuntu/blob/master/18.04-init.sh (sudo bash 18.04-init.sh)
 2. 配置 `nginx`, 举例:
 	
-	$sudo nano /etc/nginx/conf.d/blog.conf;
-	server {
-		listen 80;
-		server_name blog.test;
-		root "/mnt/d/project/blog/public/";
+	`$sudo nano /etc/nginx/conf.d/blog.conf;`
+	
+		server {
+			listen 80;
+			server_name blog.test;
+			root "/mnt/d/project/blog/public/";
 
-		index index.html index.htm index.php;
-	
-		location / {
-			try_files $uri $uri/ /index.php?$query_string; #laravel 框架需要此行
+			index index.html index.htm index.php;
+
+			location / {
+				try_files $uri $uri/ /index.php?$query_string; #laravel 框架需要此行
+			}
+
+			location ~ \.php$ {
+				include snippets/fastcgi-php.conf;
+				fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+			}
 		}
-	
-		location ~ \.php$ {
-			include snippets/fastcgi-php.conf;
-			fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-		}
-	}
 3. 设置host
 >  ps. cmder在子系统中使用vim光标不能左右动（此bug有能解决的人，请指教)
 
