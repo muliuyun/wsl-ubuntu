@@ -4,8 +4,8 @@
 	(可能需重启)
 2. 打开商店搜索 ubuntu，(本文以18.04为例)，点击安装，会出现一个终端等待几分钟输入帐号与密码。（一般几分钟即可，极小几率会出现终端一直卡住的情况，可以按下enter试试.)
 3. exit(ctrl+d)退出，在命令行下（推荐使用cmder)输入`wsl`或者`bash`来进入子系统.
->ps. 安装位置可以通过，`系统->存储->更改新内容保存位置`，来选择非C盘。
->ps2. 可用 `lxrun /setdefaultuser root` (windows下命令) 来设置子系统的默认使用帐号.
+
+>ps. 可用 `lxrun /setdefaultuser root` (windows下命令) 来设置子系统的默认使用帐号.
 
 ## 环境
 1. 将此脚本保存执行: https://github.com/muliuyun/wsl-ubuntu/blob/master/18.04-init.sh (sudo bash 18.04-init.sh)
